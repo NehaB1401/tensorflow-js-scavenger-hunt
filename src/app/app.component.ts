@@ -3,10 +3,12 @@ import { ViewChild } from '@angular/core';
 import * as tf from '@tensorflow/tfjs';
 import * as tfc from '@tensorflow/tfjs-core';
 
-import {SCAVENGER_CLASSES} from './SCAVENGER_CLASSES'
+import {SCAVENGER_CLASSES,DEMOCLASSES} from './SCAVENGER_CLASSES'
+import { ArrayType } from '@angular/compiler/src/output/output_ast';
 const INPUT_NODE_NAME = 'input';
 const OUTPUT_NODE_NAME = 'final_result';
 const VIDEO_PIXELS = 224;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,27 +16,36 @@ const VIDEO_PIXELS = 224;
 })
 export class AppComponent {
   title = 'app';
-  prediction_top : string
   @ViewChild('videoElement') videoElement: any;  
   video: any;
-  predictions: any;
+  predictions: string;
   model: tf.Model;
   is_loaded:boolean;
   is_playing:boolean;
+  top_10:any;
+  find_this : string;
   ngOnInit() {
-    this.prediction_top = '';
+    this.predictions ='';
+    this.get_random_item();
     this.video = <HTMLVideoElement>document.querySelector("video");
-    this.loadModel();
+    
     this.is_loaded =false;
     this.is_playing =false;
-    this.predict();
+    this.top_10 = [];
+    this.loadModel().then(()=>{this.predict()});
   }
 
-  start() {
+  get_random_item(){
+    this.find_this = DEMOCLASSES[Math.floor(Math.random()*DEMOCLASSES.length)];
+  }
+
+  async start() {
     this.initCamera({ 'video': {facingMode: 'environment'}, audio: false });
   }
   pause(){
     this.video.pause();
+    this.is_playing = false;
+    
   }
 
 
@@ -58,7 +69,7 @@ export class AppComponent {
         console.log(videoHeight);
         console.log(videoWidth);
         var aspectRatio = videoWidth / videoHeight;
-        console.log(aspectRatio)
+        
         // if (videoWidth >= videoHeight) {
         //   this.video.height = VIDEO_PIXELS;
         //   this.video.width = aspectRatio * VIDEO_PIXELS;
@@ -66,10 +77,18 @@ export class AppComponent {
         //   this.video.width = VIDEO_PIXELS;
         //   this.video.height = VIDEO_PIXELS / aspectRatio;
         // }
+      }).then(()=>{
+        this.warmUpModel();
       });
       
     });
   } 
+
+  warmUpModel(){
+    this.model.predict(tf.zeros([1, VIDEO_PIXELS, VIDEO_PIXELS, 3]));
+    this.top_10.length = 0;
+    this.get_random_item();
+  }
 
   async loadModel() {
     this.model = await tf.loadModel('https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json');
@@ -100,10 +119,23 @@ export class AppComponent {
           // var batched = img.reshape([1, 224, 224, 3]);
           return this.model.predict(batched);
       });
-      var top_3 = await this.getTopKClasses(pred,10);
-      this.prediction_top = top_3[0].className
+      this.top_10 = await this.getTopKClasses(pred,1);
+      this.predictions = this.top_10[0].className;
+      this.check_item_found();
     }
     requestAnimationFrame(() => this.predict());
+  }
+
+  async check_item_found(){
+    await this.top_10.some(e =>{
+      if(e.className!=undefined  &&  (e.className).includes(this.find_this)){
+        this.pause();
+        this.warmUpModel();
+        this.predictions = e.className;
+        alert("found it ");
+        return this.start();
+      }
+    });
   }
 
   async getTopKClasses(logits, topK) {
