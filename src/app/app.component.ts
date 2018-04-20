@@ -31,7 +31,7 @@ export class AppComponent {
   }
 
   start() {
-    this.initCamera({ video: true, audio: false });
+    this.initCamera({ 'video': {facingMode: 'environment'}, audio: false });
   }
   pause(){
     this.video.pause();
@@ -59,13 +59,13 @@ export class AppComponent {
         console.log(videoWidth);
         var aspectRatio = videoWidth / videoHeight;
         console.log(aspectRatio)
-        if (videoWidth >= videoHeight) {
-          this.video.height = VIDEO_PIXELS;
-          this.video.width = aspectRatio * VIDEO_PIXELS;
-        } else {
-          this.video.width = VIDEO_PIXELS;
-          this.video.height = VIDEO_PIXELS / aspectRatio;
-        }
+        // if (videoWidth >= videoHeight) {
+        //   this.video.height = VIDEO_PIXELS;
+        //   this.video.width = aspectRatio * VIDEO_PIXELS;
+        // } else {
+        //   this.video.width = VIDEO_PIXELS;
+        //   this.video.height = VIDEO_PIXELS / aspectRatio;
+        // }
       });
       
     });
@@ -73,7 +73,6 @@ export class AppComponent {
 
   async loadModel() {
     this.model = await tf.loadModel('https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json');
-    alert("model loaded")
     this.is_loaded = true;
   }
 
@@ -83,22 +82,23 @@ export class AppComponent {
       const pred =  await tf.tidy(() => {
         // Convert the canvas pixels to 
           const img = tfc.fromPixels(this.video).toFloat();
-          // const offset = tf.scalar(127.5);
-          // // Normalize the image from [0, 255] to [-1, 1].
-          // const normalized = img.sub(offset).div(offset);
+          const offset = tf.scalar(127.5);
+          // Normalize the image from [0, 255] to [-1, 1].
+          const normalized = img.sub(offset).div(offset);
 
-          // // Reshape to a single-element batch so we can pass it to predict.
-          // const batched = normalized.reshape([1, 224, 224, 3]);
-          const centerHeight = img.shape[0] / 2;
-          const beginHeight = centerHeight - (VIDEO_PIXELS / 2);
-          const centerWidth = img.shape[1] / 2;
-          const beginWidth = centerWidth - (VIDEO_PIXELS / 2);
-          var pixelsCropped =
-          img.slice([beginHeight, beginWidth, 0],
-                             [VIDEO_PIXELS, VIDEO_PIXELS, 3]);
-          var predictr = pixelsCropped.reshape([1, 224, 224, 3]);
-          // Make a prediction through mobilenet.
-          return this.model.predict(predictr);
+          // Reshape to a single-element batch so we can pass it to predict.
+          const batched = normalized.reshape([1, 224, 224, 3]);
+          // const centerHeight = img.shape[0] / 2;
+          // const beginHeight = centerHeight - (VIDEO_PIXELS / 2);
+          // const centerWidth = img.shape[1] / 2;
+          // const beginWidth = centerWidth - (VIDEO_PIXELS / 2);
+          // var pixelsCropped =
+          // img.slice([beginHeight, beginWidth, 0],
+          //                    [VIDEO_PIXELS, VIDEO_PIXELS, 3]);
+          // var predictr = pixelsCropped.reshape([1, 224, 224, 3]);
+          // // Make a prediction through mobilenet.
+          // var batched = img.reshape([1, 224, 224, 3]);
+          return this.model.predict(batched);
       });
       var top_3 = await this.getTopKClasses(pred,10);
       this.prediction_top = top_3[0].className
