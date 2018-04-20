@@ -5,18 +5,13 @@
   </h1>
 
   <div class="row">
+    
+    <video #videoElement></video>
+  </div>
+  <div class="content">
+    <div><span> Item is {{prediction_top}}</span></div>
     <button (click)="start()" class="btn btn-primary">Play</button>
     <button (click)="pause()" class="btn btn-warning">Pause</button>
-    <img src="assets/microwave.jpg">
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="text-center">
-      <h3>
-        <video #videoElement></video>
-      </h3>
-    </div>
   </div>
 </div>
 
