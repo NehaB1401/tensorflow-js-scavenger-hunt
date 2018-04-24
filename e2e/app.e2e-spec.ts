@@ -1,10 +1,10 @@
-import { AppPage } from './app.po';
+import { Ng4socialTestPage } from './app.po';
 
-describe('scavenger-angular App', () => {
-  let page: AppPage;
+describe('ng4social-test App', () => {
+  let page: Ng4socialTestPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new Ng4socialTestPage();
   });
 
   it('should display welcome message', () => {
