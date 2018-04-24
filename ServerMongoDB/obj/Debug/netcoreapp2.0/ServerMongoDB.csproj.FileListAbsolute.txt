@@ -1,0 +1,11 @@
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\obj\Debug\netcoreapp2.0\ServerMongoDB.csprojResolveAssemblyReference.cache
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\obj\Debug\netcoreapp2.0\ServerMongoDB.csproj.CoreCompileInputs.cache
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\obj\Debug\netcoreapp2.0\ServerMongoDB.AssemblyInfoInputs.cache
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\obj\Debug\netcoreapp2.0\ServerMongoDB.AssemblyInfo.cs
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\bin\Debug\netcoreapp2.0\ServerMongoDB.deps.json
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\bin\Debug\netcoreapp2.0\ServerMongoDB.runtimeconfig.json
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\bin\Debug\netcoreapp2.0\ServerMongoDB.runtimeconfig.dev.json
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\bin\Debug\netcoreapp2.0\ServerMongoDB.dll
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\bin\Debug\netcoreapp2.0\ServerMongoDB.pdb
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\obj\Debug\netcoreapp2.0\ServerMongoDB.dll
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master - Copy\obj\Debug\netcoreapp2.0\ServerMongoDB.pdb

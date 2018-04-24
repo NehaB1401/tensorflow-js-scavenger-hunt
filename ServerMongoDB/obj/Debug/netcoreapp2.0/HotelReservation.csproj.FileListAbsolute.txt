@@ -1,0 +1,11 @@
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\bin\Debug\netcoreapp2.0\HotelReservation.deps.json
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\bin\Debug\netcoreapp2.0\HotelReservation.runtimeconfig.json
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\bin\Debug\netcoreapp2.0\HotelReservation.runtimeconfig.dev.json
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\bin\Debug\netcoreapp2.0\HotelReservation.dll
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\bin\Debug\netcoreapp2.0\HotelReservation.pdb
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\obj\Debug\netcoreapp2.0\HotelReservation.csprojResolveAssemblyReference.cache
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\obj\Debug\netcoreapp2.0\HotelReservation.csproj.CoreCompileInputs.cache
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\obj\Debug\netcoreapp2.0\HotelReservation.AssemblyInfoInputs.cache
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\obj\Debug\netcoreapp2.0\HotelReservation.AssemblyInfo.cs
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\obj\Debug\netcoreapp2.0\HotelReservation.dll
+C:\Users\nehab\Webtools\Assgn4\dotnet-core-mvc-angular-web-api\WebApiMongoDB-master\obj\Debug\netcoreapp2.0\HotelReservation.pdb
