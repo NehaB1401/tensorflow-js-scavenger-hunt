@@ -16,10 +16,10 @@ namespace ServerMongoDB.Interfaces
         Task<bool> RemoveUser(string id);
 
         // update just a single document / user
-        Task<bool> UpdateUser(string id, string username, string password);
+        Task<bool> UpdateUser(User user);
 
         // demo interface - full document update
-        Task<bool> UpdateUserScore(string username, string password, int score);
+        Task<bool> UpdateUserScore(string username, string score);
 
         // should be used with high cautious, only in relation with demo setup
         Task<bool> RemoveAllUsers();

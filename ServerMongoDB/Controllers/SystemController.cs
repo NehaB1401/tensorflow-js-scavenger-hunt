@@ -19,25 +19,25 @@ namespace ServerMongoDB.Controllers
         }
 
         // Call an initialization -      
-        [HttpGet("{setting}")]
-        public string Get(string setting)
-        {
-            if (setting == "init")
-            {
-                _userRepository.RemoveAllUsers();
-                var name = _userRepository.CreateIndex();
+    //    [HttpGet("{setting}")]
+    //    public string Get(string setting)
+    //    {
+    //        if (setting == "init")
+    //        {
+    //            _userRepository.RemoveAllUsers();
+    //            var name = _userRepository.CreateIndex();
 
-                _userRepository.AddUser(new User() { Id = "1", FirstName = "Meven", LastName = "DCunha", Username = "meven",  Password = "meven", CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now});
-                _userRepository.AddUser(new User() { Id = "2", FirstName = "Hemant", LastName = "Kamath", Username = "hemant", Password = "hemant", CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now});
-                _userRepository.AddUser(new User() { Id = "3", FirstName = "Ravi", LastName = "Munde", Username = "ravi",   Password = "ravi", CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now});
-                _userRepository.AddUser(new User() { Id = "4", FirstName = "Neha", LastName = "Bhangale", Username = "neha",   Password = "neha", CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now}); 
+    //            _userRepository.AddUser(new User() { Id = "1", FirstName = "Meven", LastName = "DCunha", Username = "meven",  Password = "meven", CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now});
+    //            _userRepository.AddUser(new User() { Id = "2", FirstName = "Hemant", LastName = "Kamath", Username = "hemant", Password = "hemant", CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now});
+    //            _userRepository.AddUser(new User() { Id = "3", FirstName = "Ravi", LastName = "Munde", Username = "ravi",   Password = "ravi", CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now});
+    //            _userRepository.AddUser(new User() { Id = "4", FirstName = "Neha", LastName = "Bhangale", Username = "neha",   Password = "neha", CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now}); 
 
 
                 
-				return "Database NotesDb was created, and collection 'Rooms' was filled with 4 sample items";
-            }
+				//return "Database NotesDb was created, and collection 'Rooms' was filled with 4 sample items";
+    //        }
 
-            return "Unknown";
-        }
+    //        return "Unknown";
+    //    }
     }
 }

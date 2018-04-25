@@ -7,7 +7,7 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/index';
 import { HomeComponent } from './home/index';
-
+import{ScoreService} from './services/score.service'
 import { SocialLoginModule } from 'angularx-social-login';
 import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { GameComponent } from './game/index';
@@ -46,7 +46,8 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    ScoreService
   ],
   bootstrap: [AppComponent]
 })

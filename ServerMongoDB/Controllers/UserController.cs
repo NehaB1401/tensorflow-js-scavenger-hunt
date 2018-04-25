@@ -31,12 +31,12 @@ namespace ServerMongoDB.Controllers
             return await _userRepository.GetAllUsers();
         }
 
-        // GET api/users/5
+        // GET api/user/5
         [HttpGet("{username}")]
         public Task<User> Get(string username)
         {
             return GetUserByIdInternal(username);
-        }
+        }   
 
         private async Task<User> GetUserByIdInternal(string id)
         {
@@ -44,17 +44,17 @@ namespace ServerMongoDB.Controllers
         }
 
         // POST api/notes
-        [HttpPost]
-        public void Post([FromBody]string username, [FromBody]string password)
+        [HttpPost("{username}/{score}")]
+        public void Post(string username,string score)
         {
-            _userRepository.AddUser(new User() { Username = username, Password = password, CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now });
+            _userRepository.UpdateUserScore(username, score);
+            //_userRepository.AddUser(new User() { Username = username, CreatedOn = DateTime.Now, UpdatedOn = DateTime.Now });
         }
-
         // PUT api/notes/5
         [HttpPut("{id}")]
-        public void Put([FromBody]string username, [FromBody]string password, [FromBody]int score)
+        public void Put([FromBody]string username , [FromBody]string score)
         {
-            _userRepository.UpdateUserScore(username, password,score);
+            _userRepository.UpdateUserScore(username,score);
         }
 
         // DELETE api/notes/23243423

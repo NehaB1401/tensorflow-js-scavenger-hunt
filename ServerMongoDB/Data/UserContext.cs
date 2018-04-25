@@ -19,7 +19,7 @@ namespace ServerMongoDB.Data
         {
             get
             {
-                return _database.GetCollection<User>("User");
+                return _database.GetCollection<User>("scores");
             }
         }
     }

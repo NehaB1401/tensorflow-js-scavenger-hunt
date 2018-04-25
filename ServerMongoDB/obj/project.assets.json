@@ -12854,7 +12854,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nehab\\.nuget\\packages\\": {},
+    "C:\\Users\\ravi7\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -12863,17 +12863,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\nehab\\Webtools\\Assgn4\\dotnet-core-mvc-angular-web-api\\WebApiMongoDB-master - Copy\\ServerMongoDB.csproj",
+      "projectUniqueName": "C:\\Users\\ravi7\\Documents\\Development\\WEBT\\final project\\Github\\tensorflow-js-scavenger-hunt\\ServerMongoDB\\ServerMongoDB.csproj",
       "projectName": "ServerMongoDB",
-      "projectPath": "C:\\Users\\nehab\\Webtools\\Assgn4\\dotnet-core-mvc-angular-web-api\\WebApiMongoDB-master - Copy\\ServerMongoDB.csproj",
-      "packagesPath": "C:\\Users\\nehab\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nehab\\Webtools\\Assgn4\\dotnet-core-mvc-angular-web-api\\WebApiMongoDB-master - Copy\\obj\\",
+      "projectPath": "C:\\Users\\ravi7\\Documents\\Development\\WEBT\\final project\\Github\\tensorflow-js-scavenger-hunt\\ServerMongoDB\\ServerMongoDB.csproj",
+      "packagesPath": "C:\\Users\\ravi7\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ravi7\\Documents\\Development\\WEBT\\final project\\Github\\tensorflow-js-scavenger-hunt\\ServerMongoDB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\nehab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ravi7\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

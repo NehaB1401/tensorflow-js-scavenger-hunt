@@ -32,6 +32,8 @@ namespace ServerMongoDB.Data
             }
         }
 
+        
+
         public async Task<User> GetUser(string username)
         {
             var filter = Builders<User>.Filter.Eq("Username", username);
@@ -79,12 +81,11 @@ namespace ServerMongoDB.Data
             }
         }
 
-        public async Task<bool> UpdateUser(string id, string username, string password)
+        public async Task<bool> UpdateUser(User user)
         {
-            var filter = Builders<User>.Filter.Eq(s => s.Id, id);
+            var filter = Builders<User>.Filter.Eq(s => s.Username, user.Username);
             var update = Builders<User>.Update
-                                       .Set(s => s.Username, username)
-                                       .Set(s => s.Password, password)
+                                       .Set(s => s.Score, user.Score)
                             .CurrentDate(s => s.UpdatedOn);
 
             try
@@ -103,14 +104,17 @@ namespace ServerMongoDB.Data
 
 
         // Demo function - full document update
-        public async Task<bool> UpdateUserScore(string username, string password, int score)
+        public async Task<bool> UpdateUserScore(string username, string score)
         {
-            var item = await GetUser(username) ?? new User();
-            item.Username = username;
-            item.Password = password;
-            item.UpdatedOn = DateTime.Now;
-
-			return true;// await UpdateUser(id, item);
+            User user = await GetUser(username) ?? new User();
+            user.Username = username;
+            user.Score.Add(Int32.Parse(score));
+            user.UpdatedOn = DateTime.Now;
+            if (user.Id == null) {
+                user.Id = username;
+                await AddUser(user);
+            }
+			return await UpdateUser(user);
         }
 
         public async Task<bool> RemoveAllUsers()
