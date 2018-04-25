@@ -13,8 +13,6 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
 export class HomeComponent implements OnInit {
 
   user: SocialUser;
-
-
   constructor(private authService: AuthService,
               private route: ActivatedRoute,
               private router: Router) { }
@@ -23,24 +21,25 @@ export class HomeComponent implements OnInit {
     this.authService.authState.subscribe((user) => {
       this.user = user;
     });
-   
   }
 
   playGame() {
     this.router.navigate['/game'];
-  }
+  } 
 
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-   // this.playGame();
   }
 
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
+  
+  
 
   signOut(): void {
-    this.authService.signOut();
+    this.authService.signOut()
+    this.user = null;
   }
   
 }

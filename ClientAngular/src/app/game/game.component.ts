@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as tf from '@tensorflow/tfjs';
 import * as tfc from '@tensorflow/tfjs-core';
-
+import { Router, ActivatedRoute } from '@angular/router';
 import { SCAVENGER_CLASSES, DEMOCLASSES } from './SCAVENGER_CLASSES'
+import { AuthService, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
 import { ArrayType } from '@angular/compiler/src/output/output_ast';
 const INPUT_NODE_NAME = 'input';
+
 const OUTPUT_NODE_NAME = 'final_result';
 const VIDEO_PIXELS = 224;
 
@@ -15,6 +18,7 @@ const VIDEO_PIXELS = 224;
 })
 export class GameComponent implements OnInit {
   title = 'app';
+  user : SocialUser;
   @ViewChild('videoElement') videoElement: any;
   video: any;
   predictions: any;
@@ -23,9 +27,28 @@ export class GameComponent implements OnInit {
   is_playing: boolean;
   top_10: any;
   find_this: string;
-  constructor() { }
+  user_type:string;
+  score:number;
+  constructor(private authService: AuthService,
+              private router: Router,
+              private route: ActivatedRoute) {
+              
+    this.user_type = this.route.snapshot.params.user;       
+    this.authService.authState.subscribe((user) => {
+      this.user = this.user_type == 'guest' ? new SocialUser():user;;
+    });
+   
+  
+    if (this.user == null){
+      this.router.navigate([''])
+    }
+  }
 
   ngOnInit() {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+    });
+    this.score = 0;
     this.predictions = '';
     this.get_random_item();
     this.video = <HTMLVideoElement>document.querySelector("video");
@@ -49,7 +72,14 @@ export class GameComponent implements OnInit {
   pause() {
     this.video.pause();
     this.is_playing = false;
-
+    
+  }
+  quit(){
+    this.pause();
+    if (this.user!=null){
+      this.authService.signOut();
+    }
+    this.router.navigate([''])
   }
 
 
@@ -109,6 +139,7 @@ export class GameComponent implements OnInit {
         this.predictions = e;
         this.warmUpModel();
         alert("found it ");
+        this.score++;
         return this.start();
       }
     });

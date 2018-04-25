@@ -10,12 +10,14 @@
           <p class="card-text">Sign in with</p>
         </div>
         <div class="card-block">
-          <button class="btn btn-social-icon btn-google" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
-          <button class="btn btn-social-icon btn-facebook" (click)="signInWithFB()"><span class="fa fa-facebook"></span></button>
+          <button  class="btn btn-social-icon btn-google" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
+          <button  class="btn btn-social-icon btn-facebook" (click)="signInWithFB()"><span class="fa fa-facebook"></span></button>
           <br />
           --or--
           <br />
-          Continue as Guest<button style="background-color:honeydew;" class="btn btn-social-icon]" (click)="signInWithGuest()"><span class="fa fa-user"></span></button>
+          Continue as Guest
+          
+          <button style="background-color:honeydew;margin: 2 px;" class="btn btn-social-icon]" [routerLink]="['/game' , 'guest']"><span class="fa fa-user"></span></button>
         </div>
       </div>
 
@@ -30,7 +32,7 @@
         <h4 class="card-title">{{ user.name }}</h4>
         <p class="card-text">{{ user.email }}</p>
       </div>
-      <button style="align-items:center; width:50px;" class="glyphicon-play" [routerLink]="['/game', user]"><span class="fa fa-play"></span></button>
+      <button class="btn btn-primary" [routerLink]="['/game']"><span class="fa fa-play"></span></button>
       <div class="card-block">
         <button class="btn btn-danger" (click)="signOut()">Sign out</button>
       </div>

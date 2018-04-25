@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<div style="text-align:center">
+  <h1>
+    Press Play
+  </h1>
+  <div  class="video-container">
+
+    <video #videoElement width="224px" height="224px"></video>
+    <div class="overlay-desc" *ngIf = "is_playing">
+        <h1 class="score_card">Score:{{score}}</h1>
+     </div>
+  </div>
+  
+  <div class="content">
+    <div *ngIf='is_playing'><span> I see  </span><div> {{predictions.className}}</div></div>
+    <span>Find me  {{find_this}}</span>
+    <button mat-button (click)="start()" class="btn btn-primary">Play</button>
+    <button mat-button (click)="quit()" class="btn btn-warning">Quit</button>
+  </div>
+</div>

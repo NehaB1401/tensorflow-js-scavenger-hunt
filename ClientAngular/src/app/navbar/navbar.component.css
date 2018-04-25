@@ -1,0 +1,17 @@
+#userinfo {
+ height: 30px;
+ width: 30px;
+ position:absolute; 
+ right:0; 
+ top:0;
+
+}
+#usertable{
+    position:absolute; 
+    right:0; 
+    top:0;
+
+}
+img{
+    float: right;
+}
