@@ -1,6 +1,13 @@
-# Ng4socialTest
+# Tensorflow JS Scavenger Hunt
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
+Scavenger Hunt is an experimental web based game that makes use of TensorFlow.js to identify objects seen by your webcam or mobile camera in the browser. We ask you to find some specific objects in the real world. 
+
+Learn more about the experiment and try it for yourself at https://tensorjs-8e601.firebaseapp.com/ 
+
+## mLab server
+
+mLab is a fully managed cloud database service that hosts MongoDB databases. 
+Database 'scvengerdb' is hosted by mLab running on Amazon Web Services.
 
 ## Development server
 
