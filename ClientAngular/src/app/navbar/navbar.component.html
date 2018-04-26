@@ -1,31 +1,30 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top">
-    
-      
-  
-    <div class="container" style="position:relative "> 
+<nav  class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top">
+  <div class="container" style="position:relative "> 
   <table id ="#usertable" >
-    <td width = '999999px'>
-        
+    <td width ="95%" valign="middle">
             <div class="navbar-header page-scroll">
-              <a class="navbar-brand" href="/home">Emoji Scavenger Hunt</a>
+              <a class="navbar-brand" href="/home"> Scavenger Hunt</a>
             </div>
-    </td>
-    <div >      
-      <td valign="middle" ><img  src="{{ userImage }}" height="30px" width="30px"></td>
+    </td> 
+    <div class="dropdown" tabindex="1">      
+      <td valign="middle" >
+        <img  src="{{ userImage }}" height="30px" width="30px">
+        <div class="dropdown-content" style="float: right;" *ngIf ="user">
+            <a href="#" *ngIf = "scores">High Score:{{scores[0]}}</a>
+            <a href="#" id="scoreboard" (click)="showMyScores();">My Scores</a>
+            <a href="" tabindex="3" (click)="signOut()">Sign Out</a>
+          </div>
+      </td>
       <td valign="middle" > 
-          <div class="dropdown"  *ngIf = "user">
+          <div *ngIf = "user">
               <span class="dropbtn">{{username}}</span>
-              <div class="dropdown-content" >
-                <a href="#" *ngIf = "scores">High Score: {{scores.slice(-1)[0] }}</a>
-                <a href="showMyScores()" >My Scores</a>
-                <a href="" ng-click="signOut()">Sign Out</a>
-                <!-- <span *ngFor="let score of scores">{{score}}</span><br/> -->
-              </div>
             </div>
-        
-        <span style="font-size: 20px;"></span>
       </td>
     </div>
+      <td width = "200px">
+        <div style="visibility:hidden"><span style="font-size: 10;">THIS</span></div>
+      </td>
+    
  
     </table>
     <!-- <div  id = "userinfo" style="height:40px"> 
@@ -34,5 +33,26 @@
         </div>           
     </div> -->
   </div>
-  
+  <div class="modal" id="score-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div style="background-color:cornflowerblue" class="modal-header">
+                
+                <h4 style="margin-right:55px;" class="modal-title">Score Board</h4>
+                <button type="button" (click)="closeScoreBoard();" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr *ngFor="let score of scores; let i = index" > 
+                        <td *ngIf = "i<10">
+                            {{score}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 </nav>
+
+

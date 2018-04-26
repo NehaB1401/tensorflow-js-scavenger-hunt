@@ -7,7 +7,7 @@ import { AuthService, GoogleLoginProvider, FacebookLoginProvider } from 'angular
 import { SocialUser } from 'angularx-social-login';
 import { ArrayType } from '@angular/compiler/src/output/output_ast';
 import {ScoreService} from '../services/score.service'
-
+import {NavbarComponent} from '../navbar/navbar.component'
 const OUTPUT_NODE_NAME = 'final_result';
 const VIDEO_PIXELS = 224;
 
@@ -29,6 +29,7 @@ export class GameComponent implements OnInit {
   find_this: string;
   user_type:string;
   score:number;
+  navBar : NavbarComponent;
   constructor(private authService: AuthService,
               private router: Router,
               private route: ActivatedRoute,
@@ -79,17 +80,17 @@ export class GameComponent implements OnInit {
     this.pause();
     if (this.user!=null){
       if(this.score>0){
-        
+        this.pushscore()
       }
       //this.authService.signOut();
     }
-    this.pushscore()
-    alert('Game Over'+'<br/> Your Score is '+this.score)
-    //this.router.navigate([''])
+
+    alert('Game Over'+' Your Score is '+this.score)
+    
+    this.router.navigate([''])
   }
 
   pushscore(){
-    
     this.scoreservice.pushscore(this.user.email,this.score);
   }
 
@@ -148,9 +149,10 @@ export class GameComponent implements OnInit {
         this.pause();
         this.predictions = e;
         this.warmUpModel();
-        alert("found it ");
+        this.showFoundPanel();
+
         this.score++;
-        return this.start();
+        return 0;
       }
     });
   }
@@ -194,6 +196,40 @@ export class GameComponent implements OnInit {
     image.src = canvas.toDataURL();
     return image;
   }
+
+
+
+
+
+
+  showFoundPanel() {
+
+    // Get the modal
+    var modal = document.getElementById('found-modal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("scoreboard");
+
+    // When the user clicks on the button, open the modal
+
+    modal.style.display = "block";
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            
+            // modal.style.display = "none";
+        }
+    }
+
+}
+// When the user clicks on close button of the modal, close it
+closeFoundBoard() {
+    // Get the modal
+    var modal = document.getElementById('found-modal');
+    modal.style.display = "none";
+    this.start()
+}
 }
 
 

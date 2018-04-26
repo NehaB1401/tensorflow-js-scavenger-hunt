@@ -1022,4 +1022,4 @@ export const SCAVENGER_CLASSES: {[key: number]: string} ={
   999: 'toilet tissue, toilet paper, bathroom tissue'
 };
 
-export const DEMOCLASSES = ['cellphone','sunglasses']
+export const DEMOCLASSES = ['cellphone','sunglasses','laptop','keyboard','watch']

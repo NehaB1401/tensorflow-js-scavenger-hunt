@@ -4,20 +4,20 @@
  position:absolute; 
  right:0; 
  top:0;
-
 }
 #usertable{
     position:absolute; 
     right:0; 
     top:0;
-
 }
 img{
     float: right;
 }
 .dropbtn {
-
-    padding: 16px;
+    
+    color: white;
+    padding: 1px;
+    color: black;
     font-size: 16px;
     border: none;
 }
@@ -52,3 +52,22 @@ img{
 .dropdown:hover .dropbtn {
     background-color: #ddd;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+   }
+   
+   th, td {
+    text-align: left;
+    padding: 8px;
+   }
+   
+   tr:nth-child(even) {
+    background-color: #f2f2f2
+   }
+   
+   th {
+    background-color: #4CAF50;
+    color: white;
+   }

@@ -1,10 +1,26 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <div style="text-align:center">
   <h1>
+    <br/>
+    <br/>
     Press Play
   </h1>
   <div  class="video-container">
-
+      <div class="modal" id="found-modal">
+          <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                  <div style="background-color:cornflowerblue" class="modal-header">
+                      
+                      <h4 style="margin-right:55px;" class="modal-title">Fount it</h4>
+                      <button type="button" (click)="closeFoundBoard();" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                      You found the item. Good Job!
+                      <button (click)="closeFoundBoard();">👍</button>
+                  </div>
+              </div>
+          </div>
+      </div>
     <video #videoElement width="224px" height="224px"></video>
     <div class="overlay-desc" *ngIf = "is_playing">
         <h1 class="score_card">Score:{{score}}</h1>
@@ -14,7 +30,14 @@
   <div class="content">
     <div *ngIf='is_playing'><span> I see  </span><div> {{predictions.className}}</div></div>
     <span>Find me  {{find_this}}</span>
-    <button mat-button (click)="start()" class="btn btn-primary">Play</button>
+    
+    <button mat-button (click)="start()" class="btn btn-primary" ng-disabled="!is_loaded">Play</button>
     <button mat-button (click)="quit()" class="btn btn-warning">Quit</button>
   </div>
 </div>
+
+
+
+
+
+
