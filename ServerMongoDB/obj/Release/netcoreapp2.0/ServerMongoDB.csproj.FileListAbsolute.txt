@@ -1,0 +1,11 @@
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\bin\Release\netcoreapp2.0\ServerMongoDB.deps.json
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\bin\Release\netcoreapp2.0\ServerMongoDB.runtimeconfig.json
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\bin\Release\netcoreapp2.0\ServerMongoDB.runtimeconfig.dev.json
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\bin\Release\netcoreapp2.0\ServerMongoDB.dll
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\bin\Release\netcoreapp2.0\ServerMongoDB.pdb
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\obj\Release\netcoreapp2.0\ServerMongoDB.csprojResolveAssemblyReference.cache
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\obj\Release\netcoreapp2.0\ServerMongoDB.csproj.CoreCompileInputs.cache
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\obj\Release\netcoreapp2.0\ServerMongoDB.AssemblyInfoInputs.cache
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\obj\Release\netcoreapp2.0\ServerMongoDB.AssemblyInfo.cs
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\obj\Release\netcoreapp2.0\ServerMongoDB.dll
+C:\Users\ravi7\Documents\Development\WEBT\final project\Github\tensorflow-js-scavenger-hunt\ServerMongoDB\obj\Release\netcoreapp2.0\ServerMongoDB.pdb

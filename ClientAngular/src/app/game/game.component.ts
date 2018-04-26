@@ -6,7 +6,7 @@ import { SCAVENGER_CLASSES, DEMOCLASSES } from './SCAVENGER_CLASSES'
 import { AuthService, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { SocialUser } from 'angularx-social-login';
 import { ArrayType } from '@angular/compiler/src/output/output_ast';
-const INPUT_NODE_NAME = 'input';
+import {ScoreService} from '../services/score.service'
 
 const OUTPUT_NODE_NAME = 'final_result';
 const VIDEO_PIXELS = 224;
@@ -31,7 +31,8 @@ export class GameComponent implements OnInit {
   score:number;
   constructor(private authService: AuthService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private scoreservice :ScoreService) {
               
     this.user_type = this.route.snapshot.params.user;       
     this.authService.authState.subscribe((user) => {
@@ -77,11 +78,20 @@ export class GameComponent implements OnInit {
   quit(){
     this.pause();
     if (this.user!=null){
-      this.authService.signOut();
+      if(this.score>0){
+        
+      }
+      //this.authService.signOut();
     }
-    this.router.navigate([''])
+    this.pushscore()
+    alert('Game Over'+'<br/> Your Score is '+this.score)
+    //this.router.navigate([''])
   }
 
+  pushscore(){
+    
+    this.scoreservice.pushscore(this.user.email,this.score);
+  }
 
   initCamera(config: any) {
     var browser = <any>navigator;

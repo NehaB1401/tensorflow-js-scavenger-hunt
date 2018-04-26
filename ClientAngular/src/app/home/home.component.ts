@@ -15,12 +15,14 @@ export class HomeComponent implements OnInit {
   user: SocialUser;
   constructor(private authService: AuthService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+                this.authService.authState.subscribe((user) => {
+                  this.user = user;
+                });
+               }
 
   ngOnInit() {
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-    });
+    
   }
 
   playGame() {

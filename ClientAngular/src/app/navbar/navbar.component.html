@@ -10,8 +10,23 @@
               <a class="navbar-brand" href="/home">Emoji Scavenger Hunt</a>
             </div>
     </td>
-      <td valign="middle"><img  src="{{ userImage }}" height="30px" width="30px"></td>
-      <td valign="middle"> <span style="font-size: 20px;">{{username}}</span></td>
+    <div >      
+      <td valign="middle" ><img  src="{{ userImage }}" height="30px" width="30px"></td>
+      <td valign="middle" > 
+          <div class="dropdown"  *ngIf = "user">
+              <span class="dropbtn">{{username}}</span>
+              <div class="dropdown-content" >
+                <a href="#" *ngIf = "scores">High Score: {{scores.slice(-1)[0] }}</a>
+                <a href="showMyScores()" >My Scores</a>
+                <a href="" ng-click="signOut()">Sign Out</a>
+                <!-- <span *ngFor="let score of scores">{{score}}</span><br/> -->
+              </div>
+            </div>
+        
+        <span style="font-size: 20px;"></span>
+      </td>
+    </div>
+ 
     </table>
     <!-- <div  id = "userinfo" style="height:40px"> 
         <div style="float: initial;">
