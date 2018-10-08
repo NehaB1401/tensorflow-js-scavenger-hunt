@@ -26,8 +26,6 @@ Learn more about the experiment and try it for yourself at [Scavenger Hunt](htt
   ```
   npm start
   ```
-Open the terminal for ecommerceSite\manager and ru by ng serve --port 4300
-Open the terminal for ecommerceSite\chatserver and run by npm start
 
 > You can access the website at ('http://localhost:4200') (windows) / ('http://localhost:4000') (mac)
 
