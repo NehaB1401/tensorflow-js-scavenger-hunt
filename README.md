@@ -1,4 +1,4 @@
-# tensorflowJS Scavenger Hunt
+# TensorflowJS Scavenger Hunt
 Scavenger Hunt is web based game that makes use of TensorFlow.js to identify objects seen by your webcam or mobile camera in the browser.
 We ask you to find some specific objects in the real world.
 
